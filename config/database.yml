@@ -22,12 +22,30 @@
 #   # http://guides.rubyonrails.org/configuring.html#database-pooling
 #   pool: 5
 
-# development:
-#   <<: *default
-#   database: exam_development
-#   encoding: unicode
-#   adapter: postgresql
-#   pool: 5
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: exam_development
+  pool: 5
+  username: exam
+  password:
+
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: exam_test
+  pool: 5
+  username: exam
+  password:
+
+production:
+  database: exam_production
+  username: exam
+  password: password
+  encoding: unicode
+  adapter: postgresql
+  pool: 5
 
 #   # The specified database role being used to connect to postgres.
 #   # To create additional roles in postgres see `$ createuser --help`.
@@ -85,10 +103,4 @@
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  database: exam_production
-  username: exam
-  password: password
-  encoding: unicode
-  adapter: postgresql
-  pool: 5
+
