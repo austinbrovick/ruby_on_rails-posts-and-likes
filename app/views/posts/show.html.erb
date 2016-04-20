@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <div id='main_wrapper'>
+        <a href='/posts'>Bright Ideas!</a>
+        <a href='/users/logout'>Logout</a>
+        <p><a href='/users/<%= @post.user.id %>'><%= @post.user.name %></a> says <span><%= @post.content %></span></p>
+        <div id='likers'>
+            <table>
+                <tr>
+                    <th>Alias</th>
+                    <th>Name</th>
+                </tr>
+                <% @likers.each do |like| %>
+                    <tr>
+                        <td><a href='/users/<%= like.user.id %>'><%= like.user.alias %></a></td>
+                        <td><%= like.user.name %></td>
+                    </tr>
+                <% end %>
+            </table>
+
+
+
+        </div>
+    </div>
+</body>
+
+
+</html>

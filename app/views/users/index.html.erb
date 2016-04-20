@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <div>
+        <div id='register'>
+            <h3>Register</h3>
+            <% if flash[:errors] %>
+                <% flash[:errors].each do |e| %>
+                    <p><%= e %></p>
+                <% end %>
+            <% end %>
+            <table>
+                <form method='post' action='/users/register'>
+                    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+                    <tr>
+                        <td>Name:</td>
+                        <td><input type='text' name='name'></td>
+                    </tr>
+                    <tr>
+                        <td>Alias:</td>
+                        <td><input type='text' name='alias'></td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td><input type='text' name='email'></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type='password' name='password'></td>
+                    </tr>
+                    <tr>
+                        <td>Password must be at least 8 characters long</td>
+                    </tr>
+                    <tr>
+                        <td>Password Confirmation</td>
+                        <td><input type='password' name='password_confirmation'></td>
+                    </tr>
+                    <tr>
+                        <td><input type='submit' value='Register'></td>
+                    </tr>
+                </form>
+            </table>
+        </div>
+        <div id='login'>
+            <h3>Login</h3>
+            <% if flash[:login_errors] %>
+                <p><%= flash[:login_errors] %></p>
+            <% end %>
+            <table>
+                <form method='post' action='/users/login'>
+                    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+                    <tr>
+                        <td>Email:</td>
+                        <td><input type='text' name='email'></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type='password' name='password'></td>
+                    </tr>
+                    <tr>
+                        <td><input type='submit' value='Login'></td>
+                    </tr>
+                </form>
+            </table>
+        </div>
+    </div>
+</body>
+
+
+</html>

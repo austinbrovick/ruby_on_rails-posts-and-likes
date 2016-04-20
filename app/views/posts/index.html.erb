@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <div id='main_wrapper'>
+        <h1>Hi <%= @user.name %></h1>
+        <a href='/users/logout'>Logout</a>
+        <div id='posts'>
+            <form method='post' action='/posts/create'>
+                <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+                <textarea name='content'></textarea>
+                <input type='submit' value='post'>
+            </form>
+
+            <% @posts.each do |x| %>
+                <h2><a href='/users/<%= x[:post].user.id %>'><%= x[:post].user.alias %></a> says</h2>
+                <h3><%= x[:post].content %></h3>
+                <a href='/likes/<%= x[:post].id %>'>Like</a>
+                <a href='/likes/<%= x[:post].id %>/show'><%= x[:like_count] %> people</a> like this <br />
+                <% if @user == x[:post].user %>
+                    <a href= "posts/<%= x[:post].id %>" data-method='delete'>delete post</a>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+</body>
+</html>

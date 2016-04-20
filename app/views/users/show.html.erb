@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <div id='main_wrapper'>
+        <a href='/posts'>Bright Ideas!</a> |||
+        <a href='/users/logout'>Logout</a>
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td><%= @user.name %></td>
+            </tr>
+            <tr>
+                <td>Alias:</td>
+                <td><%= @user.alias %></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><%= @user.email %></td>
+            </tr>
+        </table>
+        <hr />
+
+
+        <table>
+            <tr>
+                <td>Total Number of Posts:</td>
+                <td><%= @post_count %></td>
+            </tr>
+
+            <tr>
+                <td>Total Number of Likes</td>
+                <td><%= @like_count %></td>
+            </tr>
+
+        </table>
+    </div>
+</body>
+
+
+</html>
